@@ -1,26 +1,19 @@
 title: Resume
-name: Alejandro Alvarez Perez
+name: Alejandro Alvarez Pérez
 jobtitle: Lead Data Scientist | Experimentation and Causal Inference
 contact:
-  - icon: fa-envelope
-    text: youremail@example.com
-  - icon: fa-phone-square
-    text: your-phone-num
   - icon: fa-globe
-    text: your-website.com
-    link: https://crispgm.github.io/resume/resume.html
-  - icon: fa-github
-    text: your-github
-    link: https://github.com/crispgm/resume
+    text: Tech blog
+    link: https://aalvarezperez.github.io/
 education:
-  - university: Your First University
-    duration: Jul 2011 - Dec 2012
-    location: Consectetur adipiscing elit
-    major: Lorem ipsum dolor sit amet
-  - university: Your Second University
-    duration: Aug 2007 - Jun 2011
-    location: Ut enim ad minim veniam
-    major: Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+  - university: Bsc Psychological Research Methods and Statistics
+    duration: Jul 2014 - Dec 2017
+    location: University of Amsterdam
+    major:
+  - university: Msc Behavioural Data Science
+    duration: Aug 20017 - Jun 2018
+    location: University of Amsterdam
+    major:
 skills:
   - title: Skill Group 1
     items: Lorem, Ipsum, Dolor, Sit, Amet
