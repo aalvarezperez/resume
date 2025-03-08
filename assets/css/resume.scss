@@ -8,7 +8,8 @@
 
 $breakpoint: 48rem;
 
-$background-color: #fff;
+$background-color: #F9F5EF;
+/*#fff;*/
 
 {% case site.color %}
 {% when 'red' %}
@@ -55,7 +56,7 @@ $main-color:       #4C566A;
 $secondary-color:  #81A1C1;
 {% else %}
 $main-color:       #495057;
-$secondary-color:  #adb5bd;
+$secondary-color: #a2a4b1;
 {% endcase %}
 
 @import "main";

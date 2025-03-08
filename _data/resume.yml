@@ -1,6 +1,7 @@
 title: Resume
 name: Alejandro Alvarez Pérez
 jobtitle: Lead Data Scientist | Experimentation and Causal Inference
+headline: Big-picture thinker, always keeping the outcome top of mind. I am a creative and experienced problem-solver with data who is also a fun person to work with.
 contact:
   - icon: fa-globe
     text: Tech blog
@@ -21,19 +22,49 @@ skills:
     items: Consectetur, Adipiscing, Elit
   - title: Skill Group 3
     items: Sed do, Eiusmod, Tempor, Incididunt
+
+
 experience:
-  - title: Job Title 1
-    duration: Apr 2016 - Now
-    company: Your 1st, Inc.
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  - title: Job Title 2
-    duration: Apr 2013 - Mar 2016
-    company: Your 2nd, Inc.
-    description: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  - title: Job Title 3
-    duration: Dec 2011 - Mar 2012
-    company: Your 3rd Co, Ltd.
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  - title: Lead Data Scientist — experimentation | causal inference
+    duration: Apr 2023 - Present
+    company: Adevinta — Marktplaats
+    description:
+      - Designed and led pricing experiments, increasing revenue and usage of transactional services.
+      - Strengthened ties with global data leadership, delivering insights that influenced investment decisions in the German and Dutch markets.
+      - Redesigned the product data science team’s objectives and planning, aligning them with broader company goals.
+      - Led a large-scale marketplace insights project, collaborating across multiple product tribes to identify and resolve inefficiencies. Mentored two senior Product Analysts in securing buy-in for their initiatives.
+      - Promoted a culture of experimentation by organizing an internal experimentation conference.
+      - Advocated for causal inference and incrementality, ensuring data-driven initiatives create meaningful impact.
+
+  - title: Senior Data Scientist — experimentation | causal inference
+    duration: Sep 2019 - Apr 2023
+    company: eBay (classifieds group)
+    description:
+      - Cut data scientist-hours by 3h per experiment, and reduced experiment runtime by 20% as core dev and statistician for internal experimentation python package
+      - Fostered research culture through upskilling R&D teams in structured opportunity finding in our internal Data University
+      - Designed and delivered causal inference projects, steering prioritisation towards solving given user pain points
+
+  - title: Data Scientist, Global — product insights
+    duration: Nov 2018 - Sep 2019
+    company: eBay (classifieds group)
+    description:
+      - Uncovered potential to verticalise categories,through advanced statistical modeling and simulation
+      - Shaped global strategy to fight fraud, by identifying the impact of exposure to fraud on our products and business, using econometric methods for causal inference
+
+  - title: Intern Data Scientist
+    duration: May 2018 - Nov 2019
+    company: eBay (classifieds group)
+    description:
+      - Quantitatively validating customer experience metrics; Customer Effort Score, Smile Metric. Ad-hoc analyses and deep-dives on user behaviour
+
+  - title: Teaching Assistant at University of Utrecht
+    duration: Sep 2017 - Dec 2017
+    company: University of Utrecht, The Netherlands
+
+  - title: Intern Research & Statistics Advisor
+    duration: Oct 2017 - Jan 2018
+    company: University of Amsterdam, The Netherlands
+
 projects:
   - name: Project Name 1
     description: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -44,5 +75,9 @@ projects:
 languages:
   - name: English
     proficiency: Work proficiency
-  - name: Mandarin Chinese
+  - name: Dutch
     proficiency: Native
+  - name: Spanish
+    proficiency: Native
+  - name: French
+    proficiency: Advanced
