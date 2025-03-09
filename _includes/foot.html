@@ -1,3 +1,12 @@
-    <footer>
-       <span class="print"> <a href="javascript:window.print()">PDF version</a> </span>
-    </footer>
+<footer>
+    <span class="print">
+        <a href="#" onclick="window.print(); return false;">PDF version</a>
+    </span>
+</footer>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let now = new Date();
+            document.getElementById('print-date').textContent = now.toLocaleString();
+        });
+</script>

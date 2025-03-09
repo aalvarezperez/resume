@@ -6,3 +6,25 @@ footer {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+@media print {
+    .print {
+        display: none;
+    }
+
+    footer, nav{
+        display: none;
+    }
+
+    body {
+        /*Adjust body styles for printing*/
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+    }
+
+    /* Customize header and footer content (browser-dependent) */
+    /* This is very limited and browser controlled */
+    /* You can't directly set metadata */
+}
+

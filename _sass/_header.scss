@@ -24,25 +24,25 @@ header {
 }
 
 .headline {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: .8rem;
 }
 
 
 .contact {
-  flex: .45;
-  flex-wrap: wrap; // allows contact items to move to a new line if space is limited
+  display: flex; /* Enable flex layout for icons */
+  flex-wrap: wrap;
+  //align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem; /* Optional: space between icons */
   font-size: 1rem;
   padding-top: 1rem;
 }
 
 .contact-item {
-  flex: 1 1 100px; // added by me
+  flex: 1 1 auto;
   margin-top: .4rem;
-
-  &:nth-child(1) {
-    margin-top: 0;
-  }
+  font-size: 1.25rem;
 
   & a {
     color: inherit;
@@ -76,16 +76,5 @@ header {
 
   .header-bottomrow {
     margin-top: 1rem;
-  }
-
-  .contact {
-    padding-top: 1rem;
-    border-top: .1rem solid $secondary-color;
-  }
-
-  .contact-item {
-    flex: 1 1 auto; // added by me
-    padding-top: .2rem;
-    padding-left: .4rem;
   }
 }

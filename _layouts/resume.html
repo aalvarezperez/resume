@@ -13,20 +13,16 @@ layout: default
                     {{ site.data.resume.jobtitle }}
                 </div>
             </div>
-            <div class="contact-wrapper">
-                <div id="contact" class="contact">
-                    {% for item in site.data.resume.contact %}
-                    <div class="contact-item">
-                        {% if item.link %}
-                        <a href="{{ item.link }}">
-                            {% endif %}
-                            <i class="fa {{ item.icon }}" aria-hidden="true"></i> {{ item.text }}
-                            {% if item.link %}
-                        </a>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
+            <div class="contact">
+                {% for item in site.data.resume.contact %}
+                {% if item.link %}
+                <div class="contact-item">
+                    <a href="{{ item.link }}">
+                        <i class="fa {{ item.icon }}" aria-hidden="true"></i>
+                    </a>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <div class="header-bottomrow">
