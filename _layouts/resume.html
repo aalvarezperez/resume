@@ -4,30 +4,34 @@ layout: default
 
 <div class="container">
     <header>
-        <div class="name-wrapper">
-            <div id="fullname" class="title">
-                {{ site.data.resume.name }}
+        <div class="header-toprow">
+            <div class="name-wrapper">
+                <div id="fullname" class="title">
+                    {{ site.data.resume.name }}
+                </div>
+                <div id="jobtitle" class="sub-title">
+                    {{ site.data.resume.jobtitle }}
+                </div>
             </div>
-            <div id="jobtitle" class="sub-title">
-                {{ site.data.resume.jobtitle }}
-            </div>
-            <div id="headline" class="headline">
-                {{ site.data.resume.headline }}
+            <div class="contact-wrapper">
+                <div id="contact" class="contact">
+                    {% for item in site.data.resume.contact %}
+                    <div class="contact-item">
+                        {% if item.link %}
+                        <a href="{{ item.link }}">
+                            {% endif %}
+                            <i class="fa {{ item.icon }}" aria-hidden="true"></i> {{ item.text }}
+                            {% if item.link %}
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-        <div class="contact-wrapper">
-            <div id="contact" class="contact">
-                {% for item in site.data.resume.contact %}
-                <div class="contact-item">
-                    {% if item.link %}
-                    <a href="{{ item.link }}">
-                        {% endif %}
-                        <i class="fa {{ item.icon }} aria-hidden=" true></i> {{ item.text }}
-                        {% if item.link %}
-                    </a>
-                    {% endif %}
-                </div>
-                {% endfor %}
+        <div class="header-bottomrow">
+            <div id="headline" class="headline">
+                {{ site.data.resume.headline }}
             </div>
         </div>
     </header>

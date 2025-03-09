@@ -3,9 +3,15 @@ name: Alejandro Alvarez Pérez
 jobtitle: Lead Data Scientist | Experimentation and Causal Inference
 headline: Big-picture thinker, always keeping the outcome top of mind. I am a creative and experienced problem-solver with data who is also a fun person to work with.
 contact:
+  - icon: fa-linkedin
+    text: LinkedIn profile
+    link: https://www.linkedin.com/in/alejandro-alvarez-p%C3%A9rez-a21912b0/
   - icon: fa-square-rss
-    text: Tech blog
+    text: Statistical blog
     link: https://aalvarezperez.github.io/
+  - icon: fa-github
+    text: Github profile
+    link: https://github.com/aalvarezperez/
   - icon: fa-envelope
     text: fa.alvarezperez@hotmail.com
 

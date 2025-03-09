@@ -1,5 +1,6 @@
 header {
   display: flex;
+  flex-direction: column; /* Stack children vertically */
   justify-content: space-between;
   border-bottom: .1rem solid $secondary-color;
   padding-top: 2.2rem;
@@ -49,6 +50,14 @@ header {
   }
 }
 
+.header-toprow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-bottomrow {
+}
+
 @media screen and (max-width: $breakpoint) {
   header {
     display: block;
@@ -58,6 +67,15 @@ header {
   .name-wrapper {
     text-align: center;
     padding-bottom: 2rem;
+  }
+
+  .header-toprow {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-bottomrow {
+    margin-top: 1rem;
   }
 
   .contact {
