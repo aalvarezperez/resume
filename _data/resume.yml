@@ -3,9 +3,12 @@ name: Alejandro Alvarez Pérez
 jobtitle: Lead Data Scientist | Experimentation and Causal Inference
 headline: Big-picture thinker, always keeping the outcome top of mind. I am a creative and experienced problem-solver with data who is also a fun person to work with.
 contact:
-  - icon: fa-globe
+  - icon: fa-square-rss
     text: Tech blog
     link: https://aalvarezperez.github.io/
+  - icon: fa-envelope
+    text: fa.alvarezperez@hotmail.com
+
 education:
   - university: Bsc Psychological Research Methods and Statistics
     duration: Jul 2014 - Dec 2017
@@ -16,13 +19,16 @@ education:
     location: University of Amsterdam
     major:
 skills:
-  - title: Skill Group 1
-    items: Lorem, Ipsum, Dolor, Sit, Amet
-  - title: Skill Group 2
-    items: Consectetur, Adipiscing, Elit
-  - title: Skill Group 3
-    items: Sed do, Eiusmod, Tempor, Incididunt
-
+  - title: Organisational
+    items: Data visualisation, Story telling with data, Communication
+  - title: Programming
+    items: Python, R, SQL, Objected-Oriented Programming, Git, [py]Spark, Google Cloud Platform, AWS
+  - title: Experimentation & Causal Inference
+    items: Double ML, Diff-in-Diff, IPSW, Discontinuity Design, Synthetic Control, Regression
+  - title: Machine Learning
+    items: XGboost, Random Forests, Clustering, Others\
+  - title: Languages
+    items: Trilingual in English, Dutch and Spanish | Advanced in French
 
 experience:
   - title: Lead Data Scientist — experimentation | causal inference

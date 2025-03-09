@@ -15,18 +15,20 @@ layout: default
                 {{ site.data.resume.headline }}
             </div>
         </div>
-        <div id="contact" class="contact">
-            {% for item in site.data.resume.contact %}
-            <div class="contact-item">
-                {% if item.link %}
-                <a href="{{ item.link }}">
-                    {% endif %}
-                    <i class="fa {{ item.icon }} aria-hidden=" true></i> {{ item.text }}
+        <div class="contact-wrapper">
+            <div id="contact" class="contact">
+                {% for item in site.data.resume.contact %}
+                <div class="contact-item">
                     {% if item.link %}
-                </a>
-                {% endif %}
+                    <a href="{{ item.link }}">
+                        {% endif %}
+                        <i class="fa {{ item.icon }} aria-hidden=" true></i> {{ item.text }}
+                        {% if item.link %}
+                    </a>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </header>
 
@@ -45,10 +47,10 @@ layout: default
                 </div>
                 <div class="block-content">
                     <ul>
-                    {% for line in exp.description %}
+                        {% for line in exp.description %}
                         <li>{{ line }}</li>
-                    {% endfor %}
-                </ul>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
             {% endfor %}
@@ -115,21 +117,21 @@ layout: default
     <!--        </div>-->
     <!--    </section>-->
 
-    <section id="languages">
-        <div class="section-title">
-            Languages
-        </div>
-        <div class="section-content section-flex">
-            {% for language in site.data.resume.languages %}
-            <div class="block block-square">
-                <div class="block-title">
-                    {{ language.name }}
-                </div>
-                <div class="block-content">
-                    {{ language.proficiency }}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+    <!--    <section id="languages">-->
+    <!--        <div class="section-title">-->
+    <!--            Languages-->
+    <!--        </div>-->
+    <!--        <div class="section-content section-flex">-->
+    <!--            {% for language in site.data.resume.languages %}-->
+    <!--            <div class="block block-square">-->
+    <!--                <div class="block-title">-->
+    <!--                    {{ language.name }}-->
+    <!--                </div>-->
+    <!--                <div class="block-content">-->
+    <!--                    {{ language.proficiency }}-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            {% endfor %}-->
+    <!--        </div>-->
+    <!--    </section>-->
 </div>

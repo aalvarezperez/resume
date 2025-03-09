@@ -7,7 +7,9 @@ header {
 }
 
 .name-wrapper {
+  flex: 1;
   padding-top: 1rem;
+  padding-right: 1rem;
   padding-bottom: 1rem;
 }
 
@@ -27,18 +29,21 @@ header {
 
 
 .contact {
+  flex: .45;
+  flex-wrap: wrap; // allows contact items to move to a new line if space is limited
   font-size: 1rem;
   padding-top: 1rem;
 }
 
 .contact-item {
+  flex: 1 1 100px; // added by me
   margin-top: .4rem;
 
   &:nth-child(1) {
     margin-top: 0;
   }
 
-  &:a {
+  & a {
     color: inherit;
     text-decoration: none;
   }
@@ -61,6 +66,7 @@ header {
   }
 
   .contact-item {
+    flex: 1 1 auto; // added by me
     padding-top: .2rem;
     padding-left: .4rem;
   }

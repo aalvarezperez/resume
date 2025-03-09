@@ -1,6 +1,5 @@
 title: Alejandro Alvarez Perez
 baseurl: "/resume/"
-color: 'orange'
 exclude:
   - README.md
   - "README_zh-CN.md"
