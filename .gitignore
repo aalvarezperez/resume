@@ -1,5 +1,6 @@
 /_site/
 *.gem
+Gemfile.lock
 .sass-cache/
 yarn.lock
 node_modules
