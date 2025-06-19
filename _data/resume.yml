@@ -20,10 +20,12 @@ education:
   - university: Bsc Psychological Research Methods and Statistics
     duration: Jul 2014 - Dec 2017
     location: University of Amsterdam
+    logo: assets/images/Amsterdamuniversitylogo.svg.png
     major:
   - university: Msc Behavioural Data Science
     duration: Aug 20017 - Jun 2018
     location: University of Amsterdam
+    logo: assets/images/Amsterdamuniversitylogo.svg.png
     major:
 skills:
   - title: Organisational
@@ -41,6 +43,7 @@ experience:
   - title: Lead Data Scientist — experimentation and causal inference
     duration: Apr 2023 - Present
     company: Adevinta — Marktplaats
+    logo: assets/images/Adevinta-logo.svg.png
     description:
       - Designed and led pricing experiments, increasing revenue and usage of transactional services.
       - Strengthened ties with global data leadership, delivering insights that influenced investment decisions in the German and Dutch markets.
@@ -52,6 +55,7 @@ experience:
   - title: Senior Data Scientist — experimentation and causal inference
     duration: Sep 2019 - Apr 2023
     company: eBay (classifieds group)
+    logo: assets/images/EBay_logo.svg.png
     description:
       - Cut data scientist-hours by 3h per experiment, and reduced experiment runtime by 20% as core dev and statistician for internal experimentation python package
       - Fostered research culture through upskilling R&D teams in structured opportunity finding in our internal Data University
@@ -60,23 +64,27 @@ experience:
   - title: Data Scientist, Global — product insights
     duration: Nov 2018 - Sep 2019
     company: eBay (classifieds group)
+    logo: assets/images/EBay_logo.svg.png
     description:
-      - Uncovered potential to verticalise categories,through advanced statistical modeling and simulation
+      - Uncovered potential to verticalise categories, through advanced statistical modeling and simulation
       - Shaped global strategy to fight fraud, by identifying the impact of exposure to fraud on our products and business, using econometric methods for causal inference
 
   - title: Intern Data Scientist
     duration: May 2018 - Nov 2019
     company: eBay (classifieds group)
+    logo: assets/images/EBay_logo.svg.png
     description:
       - Quantitatively validating customer experience metrics; Customer Effort Score, Smile Metric. Ad-hoc analyses and deep-dives on user behaviour
 
   - title: Teaching Assistant at University of Utrecht
     duration: Sep 2017 - Dec 2017
     company: University of Utrecht, The Netherlands
+    logo: assets/images/Utrecht_University_logo.svg.png
 
   - title: Intern Research & Statistics Advisor
     duration: Oct 2017 - Jan 2018
     company: University of Amsterdam, The Netherlands
+    logo: assets/images/Amsterdamuniversitylogo.svg.png
 
 projects:
   - name: Project Name 1

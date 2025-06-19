@@ -2,6 +2,14 @@
 layout: default
 ---
 
+<style>
+.logo {
+  height: 1em;          /* scales with text size */
+  margin-left: 6px;
+  vertical-align: middle;
+}
+</style>
+
 <div class="container">
     <header>
         <div class="header-toprow">
@@ -43,7 +51,11 @@ layout: default
                     {{ exp.title }}
                 </div>
                 <div class="block-subtitle">
-                    {{ exp.duration }} | {{ exp.company }}
+                    {% if exp.logo %}
+                    <img src="{{ exp.logo }}" alt="{{ exp.company }} logo" class="logo">
+                    {% endif %}
+                     {{ exp.duration}}
+<!--                    {{ exp.duration }} | {{ exp.company }}-->
                 </div>
                 <div class="block-content">
                     <ul>
@@ -83,6 +95,9 @@ layout: default
             {% for edu in site.data.resume.education %}
             <div class="block">
                 <div class="block-title">
+                    {% if edu.logo %}
+                    <img src="{{ edu.logo }}" alt="{{ edu.university }} logo" class="logo">
+                    {% endif %}
                     {{ edu.university }}
                 </div>
                 <div class="block-subtitle">
