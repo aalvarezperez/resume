@@ -1,25 +1,19 @@
 title: Resume — Alejandro Alvarez Perez
 repository: aalvarezperez/resume
 baseurl: "/resume"
+
+# Only include what Pages really needs
 include:
-  - _headers
-  - _data
-  - _includes
-  - _layouts
-  - _posts
-  - _sass
-  - _site
-  - .jekyll-cache
+  - _assets
+
 exclude:
   - README.md
-  - vendor
-  - "README_zh-CN.md"
   - LICENSE
   - Gemfile
   - Gemfile.lock
   - jekyll-crisp-minimal-resume.gemspec
-  - /script
-  - /screenshots
-  - /fixtures
+  - script
+  - screenshots
+  - fixtures
   - Rakefile
-  - vendor/bundle/ruby/3ms/jekyll-3.10.0/lib/site_template/_posts/0000-00-00-welcome-to-jekyll.markdown.erb
+  # keep any other paths you truly want out of the build
