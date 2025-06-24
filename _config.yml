@@ -1,6 +1,8 @@
 title: Resume — Alejandro Alvarez Perez
 repository: aalvarezperez/resume
 baseurl: "/resume"
+include:
+  - _headers
 exclude:
   - README.md
   - vendor
