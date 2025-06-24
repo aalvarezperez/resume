@@ -3,6 +3,13 @@ repository: aalvarezperez/resume
 baseurl: "/resume"
 include:
   - _headers
+  - _data
+  - _includes
+  - _layouts
+  - _posts
+  - _sass
+  - _site
+  - .jekyll-cache
 exclude:
   - README.md
   - vendor
