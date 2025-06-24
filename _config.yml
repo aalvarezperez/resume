@@ -1,6 +1,7 @@
 title: Resume — Alejandro Alvarez Perez
 exclude:
   - README.md
+  - vendor
   - "README_zh-CN.md"
   - LICENSE
   - Gemfile
