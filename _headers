@@ -1,0 +1,6 @@
+# Keep HTML fresh
+/resume        Cache-Control: max-age=0, must-revalidate
+/resume/index.html  Cache-Control: max-age=0, must-revalidate
+
+# Fingerprinted assets can stay cached a year
+/assets/*      Cache-Control: max-age=31536000, immutable
