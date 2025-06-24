@@ -1,6 +1,6 @@
 title: Resume
 name: Alejandro Alvarez Pérez
-jobtitle: Lead Data Scientist | Experimentation and Causal Inference
+jobtitle: Lead Data Scientist | Causal Inference and Experimentation
 headline: Big-picture thinker, always keeping the outcome top of mind. I am a creative and experienced problem-solver with data who is also a fun person to work with.
 contact:
   - icon: fa-linkedin
@@ -17,13 +17,13 @@ contact:
     link: mailto:fa.alvarezperez@hotmail.com
 
 education:
-  - university: Bsc Psychological Research Methods and Statistics
-    duration: Jul 2014 - Dec 2017
+  - university: MSc, Behavioural Data Science
+    duration: Aug 20017 - Jun 2018
     location: University of Amsterdam
     logo: assets/images/Amsterdamuniversitylogo.svg.png
     major:
-  - university: Msc Behavioural Data Science
-    duration: Aug 20017 - Jun 2018
+  - university: BSc, Psychological Research Methods and Statistics
+    duration: Jul 2014 - Dec 2017
     location: University of Amsterdam
     logo: assets/images/Amsterdamuniversitylogo.svg.png
     major:
@@ -48,9 +48,8 @@ experience:
       - Designed and led pricing experiments, increasing revenue and usage of transactional services.
       - Strengthened ties with global data leadership, delivering insights that influenced investment decisions in the German and Dutch markets.
       - Redesigned the product data science team’s objectives and planning, aligning them with broader company goals.
-      - Led a large-scale marketplace insights project, collaborating across multiple product tribes to identify and resolve inefficiencies. Mentored two senior Product Analysts in securing buy-in for their initiatives.
+      - Led a large-scale marketplace insights project, collaborating across multiple product tribes to identify and resolve inefficiencies. Mentored senior data scientists in securing buy-in for their initiatives.
       - Promoted a culture of experimentation by organizing an internal experimentation conference.
-      - Advocated for causal inference and incrementality, ensuring data-driven initiatives create meaningful impact.
 
   - title: Senior Data Scientist — experimentation and causal inference
     duration: Sep 2019 - Apr 2023
@@ -58,7 +57,7 @@ experience:
     logo: assets/images/EBay_logo.svg.png
     description:
       - Cut data scientist-hours by 3h per experiment, and reduced experiment runtime by 20% as core dev and statistician for internal experimentation python package
-      - Fostered research culture through upskilling R&D teams in structured opportunity finding in our internal Data University
+      - Fostered research culture through upskilling R&D teams in structured opportunity finding in our internal Analytics University
       - Designed and delivered causal inference projects, steering prioritisation towards solving given user pain points
 
   - title: Data Scientist, Global — product insights
@@ -87,12 +86,11 @@ experience:
     logo: assets/images/Amsterdamuniversitylogo.svg.png
 
 projects:
-  - name: Project Name 1
-    description: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    contribution: Contributor.
-  - name: Project Name 2
-    description: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    contribution: Creator and maintainer.
+  - name: Causal Inference Blog
+    link: https://aalvarezperez.github.io
+    description: Tech-blog on causal inference and online experimentation
+    contribution: Author
+
 languages:
   - name: English
     proficiency: Work proficiency

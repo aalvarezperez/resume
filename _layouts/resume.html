@@ -6,7 +6,7 @@ layout: default
 .logo {
   height: 1em;          /* scales with text size */
   margin-left: 6px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 </style>
 
@@ -111,26 +111,28 @@ layout: default
         </div>
     </section>
 
-    <!--    <section id="projects">-->
-    <!--        <div class="section-title">-->
-    <!--            Projects-->
-    <!--        </div>-->
-    <!--        <div class="section-content">-->
-    <!--            {% for project in site.data.resume.projects %}-->
-    <!--            <div class="block">-->
-    <!--                <div class="block-title">-->
-    <!--                    {{ project.name }}-->
-    <!--                </div>-->
-    <!--                <div class="block-subtitle">-->
-    <!--                    {{ project.contribution }}-->
-    <!--                </div>-->
-    <!--                <div class="block-content">-->
-    <!--                    {{ project.description }}-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            {% endfor %}-->
-    <!--        </div>-->
-    <!--    </section>-->
+        <section id="projects">
+            <div class="section-title">
+                Projects
+            </div>
+            <div class="section-content">
+                {% for project in site.data.resume.projects %}
+                <div class="block">
+                    <div class="block-title">
+                        {{ project.name }}
+                    </div>
+                    <div class="block-subtitle">
+                        {{ project.contribution }}
+                        {% if project.link %}<a href={{project.link}} target="_blank"> @ {{project.link}}</a>
+                        {% endif %}
+                    </div>
+                    <div class="block-content">
+                        {{ project.description }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
 
     <!--    <section id="languages">-->
     <!--        <div class="section-title">-->
