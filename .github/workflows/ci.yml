@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: [3.4.0, 3.0.0, 2.6.0]
+        ruby: [3.4.0, 3.3.0, 3.2.0] # Use only supported Ruby versions
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
       - uses: mstachniuk/ci-skip@v1
         with:
           fail-fast: true
@@ -16,11 +16,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: "Update Rubygems & Bundler"
-        run: "gem update --system --no-document && gem update bundler --no-document"
-      - name: "Install Bundler 2"
-        run: 'gem install bundler -v "2.0.1" --force'
-      - name: "Setup bundle"
-        run: "bundle install --jobs 4 --retry 3"
-      - name: "Run Test Suite"
-        run: "bash script/cibuild"
+          bundler: 2.6.2 # match your lockfile
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+      - name: Run Test Suite
+        run: bash script/cibuild
