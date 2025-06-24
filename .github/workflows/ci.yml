@@ -1,23 +1,16 @@
-name: build
-on: [push, pull_request]
+name: Build-test
+on:
+  pull_request:
+  workflow_dispatch:
+
 jobs:
-  ci:
-    name: run
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby: [3.4.0, 3.3.0, 3.2.0] # Use only supported Ruby versions
     steps:
       - uses: actions/checkout@v4
-      - uses: mstachniuk/ci-skip@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          fail-fast: true
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler: 2.6.2 # match your lockfile
-      - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
-      - name: Run Test Suite
-        run: bash script/cibuild
+          ruby-version: 3.3
+          bundler-cache: true       # Installs 2.6.2 & restores vendor/bundle
+      - name: Build site
+        run: bundle exec jekyll build --strict_front_matter --trace

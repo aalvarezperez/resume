@@ -29,11 +29,11 @@ education:
     major:
 skills:
   - title: Organisational
-    items: Story telling with data, verbal and written communication
+    items: Story telling with data, verbal and written communication, stakeholder management
   - title: Modelling, Experimentation & Causal Inference
     items: DoubleML, Diff-in-Diff, IPSW, Regression Discontinuity Design, Interrupted time series, Synthetic Control, Regression
   - title: Machine Learning
-    items: XGboost, Random Forests, Clustering, Others
+    items: XGboost, CatBoost, LightGBM, Random Forests, Unsupervised Learning
   - title: Programming
     items: Python, R, SQL, Objected-Oriented Programming, Git, Spark, Google Cloud Platform, AWS
   - title: Languages
