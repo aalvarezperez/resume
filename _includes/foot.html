@@ -2,15 +2,7 @@
     <span class="print">
         <a href="#" onclick="window.print(); return false;">PDF version</a>
     </span>
-    <span id="print-date" class="print"></span>
 </footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const now = new Date();
-    document.getElementById('print-date').textContent = now.toLocaleString();
-  });
-</script>
 
 <!-- fingerprinted local JS assets -->
 <script src="{{ '/assets/js/vendor.js?v=' | append: site.github.build_revision | relative_url }}"></script>
