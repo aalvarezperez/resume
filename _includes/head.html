@@ -10,37 +10,27 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="{{ site.data.resume.title }}">
-    <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ site.data.resume.title }}">
-    <meta name="twitter:description" content="{{ site.description }}">
-
     <title>{{ site.data.resume.title }}</title>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
     <script src="https://kit.fontawesome.com/4336f727d2.js" crossorigin="anonymous"></script>
 
-    <style>
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-        .toast-notification {
-            opacity: 0.95;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .toast-notification:hover {
-            opacity: 1;
-        }
-    </style>
-
+    <!-- Service Worker Configuration -->
+    <script>
+        window.SW_CONFIG = {
+            baseUrl: '{{ site.baseurl }}',
+            enabled: true,
+            version: '{{ site.time | date: "%Y%m%d%H%M%S" }}',
+            messages: {
+                title: 'Update Available',
+                body: 'A new version of this site is available.',
+                button: 'Update Now'
+            }
+        };
+    </script>
     <script defer src="{{ '/assets/js/update-notification.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     {% seo title=false %}
 </head>

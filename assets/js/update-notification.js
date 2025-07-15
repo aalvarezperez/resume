@@ -1,89 +1,110 @@
-// Toast component
-class Toast {
-    constructor() {
-        this.createToastContainer();
+// UpdateNotification class
+class UpdateNotification {
+    constructor(config) {
+        this.config = config;
+        this.refreshing = false;
+        this.createToastElement();
     }
 
-    createToastContainer() {
-        const container = document.createElement('div');
-        container.id = 'toast-container';
-        container.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        `;
-        document.body.appendChild(container);
-    }
-
-    show(message, action) {
-        const toast = document.createElement('div');
-        toast.className = 'toast-notification';
-        toast.style.cssText = `
-            background-color: #323232;
-            color: white;
-            padding: 16px 24px;
-            border-radius: 4px;
-            margin: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            animation: slideIn 0.3s ease-out;
-        `;
-
-        const messageSpan = document.createElement('span');
-        messageSpan.textContent = message;
-        toast.appendChild(messageSpan);
-
-        if (action) {
-            const button = document.createElement('button');
-            button.textContent = 'Refresh';
-            button.style.cssText = `
-                margin-left: 16px;
-                padding: 8px 12px;
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            `;
-            button.onclick = action;
-            toast.appendChild(button);
+    createToastElement() {
+        // Create toast container if it doesn't exist
+        let container = document.getElementById('toast-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'toast-container';
+            container.className = 'position-fixed bottom-0 end-0 p-3';
+            container.style.zIndex = '11';
+            document.body.appendChild(container);
         }
 
-        document.getElementById('toast-container').appendChild(toast);
+        // Create toast element
+        const toastHtml = `
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">${this.config.messages.title}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body d-flex justify-content-between align-items-center">
+                    <span>${this.config.messages.body}</span>
+                    <button class="btn btn-primary btn-sm ms-3 update-button">
+                        ${this.config.messages.button}
+                    </button>
+                </div>
+            </div>
+        `;
+        container.innerHTML = toastHtml;
 
-        setTimeout(() => {
-            toast.remove();
-        }, 10000);
+        // Initialize Bootstrap toast
+        this.toastEl = container.querySelector('.toast');
+        this.toast = new bootstrap.Toast(this.toastEl, {
+            autohide: false
+        });
+
+        // Add update button click handler
+        this.toastEl.querySelector('.update-button').addEventListener('click', () => {
+            this.triggerUpdate();
+        });
     }
-}
 
-// Service Worker registration and update handling
-if ('serviceWorker' in navigator) {
-    const toast = new Toast();
+    show() {
+        this.toast.show();
+    }
 
-    navigator.serviceWorker.register('/assets/js/sw.js').then(registration => {
-        registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
+    hide() {
+        this.toast.hide();
+    }
 
-            newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    toast.show('New version available!', () => {
-                        newWorker.postMessage({ type: 'skipWaiting' });
-                        window.location.reload();
-                    });
+    async triggerUpdate() {
+        if (this.registration && this.registration.waiting) {
+            // Hide the toast
+            this.hide();
+            // Send skip waiting message to service worker
+            this.registration.waiting.postMessage('skipWaiting');
+        }
+    }
+
+    async init() {
+        try {
+            if (!('serviceWorker' in navigator) || !this.config.enabled) {
+                console.log('Service Worker not supported or disabled');
+                return;
+            }
+
+            // Register service worker
+            const base = this.config.baseUrl || '';
+            this.registration = await navigator.serviceWorker.register(
+                `${base}/assets/js/sw.js?v=${this.config.version}`,
+                { scope: base + '/' }
+            );
+
+            // Check for updates on registration
+            this.registration.addEventListener('updatefound', () => {
+                const newWorker = this.registration.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        this.show();
+                    }
+                });
+            });
+
+            // Handle page reload on controller change
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (!this.refreshing) {
+                    this.refreshing = true;
+                    window.location.reload();
                 }
             });
-        });
-    });
 
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
-            refreshing = true;
-            window.location.reload();
+        } catch (error) {
+            console.error('Service Worker registration failed:', error);
         }
-    });
+    }
 }
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.SW_CONFIG) {
+        const updateNotification = new UpdateNotification(window.SW_CONFIG);
+        updateNotification.init();
+    }
+});
