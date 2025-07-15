@@ -3,7 +3,7 @@ repository: aalvarezperez/resume
 baseurl: "/resume"
 description: "Professional resume and portfolio of Alejandro Alvarez Perez, showcasing experience in software engineering and development."
 author: Alejandro Alvarez Perez
-url: "https://aalvarezperez.github.io/resume"
+url: "https://aalvarezperez.github.io"
 lang: "en"
 
 # SEO and Site plugins
@@ -32,4 +32,9 @@ exclude:
   - screenshots
   - fixtures
   - Rakefile
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - node_modules
   # keep any other paths you truly want out of the build
