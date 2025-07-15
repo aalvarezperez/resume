@@ -3,7 +3,10 @@ class UpdateNotification {
     constructor(config) {
         this.config = config;
         this.refreshing = false;
-        this.createToastElement();
+
+        if ('serviceWorker' in navigator && config.enabled) {
+            this.init();
+        }
     }
 
     createToastElement() {
@@ -42,57 +45,31 @@ class UpdateNotification {
 
         // Add update button click handler
         this.toastEl.querySelector('.update-button').addEventListener('click', () => {
-            this.triggerUpdate();
+            window.location.reload();
         });
     }
 
     show() {
-        this.toast.show();
-    }
-
-    hide() {
-        this.toast.hide();
-    }
-
-    async triggerUpdate() {
-        if (this.registration && this.registration.waiting) {
-            // Hide the toast
-            this.hide();
-            // Send skip waiting message to service worker
-            this.registration.waiting.postMessage('skipWaiting');
+        if (!this.toastEl) {
+            this.createToastElement();
         }
+        this.toast.show();
     }
 
     async init() {
         try {
-            if (!('serviceWorker' in navigator) || !this.config.enabled) {
-                console.log('Service Worker not supported or disabled');
-                return;
-            }
-
-            // Register service worker
-            const base = this.config.baseUrl || '';
-            this.registration = await navigator.serviceWorker.register(
-                `${base}/assets/js/sw.js?v=${this.config.version}`,
-                { scope: base + '/' }
+            const registration = await navigator.serviceWorker.register(
+                `${this.config.baseUrl}/assets/js/sw.js`
             );
 
-            // Check for updates on registration
-            this.registration.addEventListener('updatefound', () => {
-                const newWorker = this.registration.installing;
+            // Show notification only when there's a new service worker waiting
+            registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
                 newWorker.addEventListener('statechange', () => {
                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                         this.show();
                     }
                 });
-            });
-
-            // Handle page reload on controller change
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-                if (!this.refreshing) {
-                    this.refreshing = true;
-                    window.location.reload();
-                }
             });
 
         } catch (error) {
@@ -104,7 +81,6 @@ class UpdateNotification {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     if (window.SW_CONFIG) {
-        const updateNotification = new UpdateNotification(window.SW_CONFIG);
-        updateNotification.init();
+        new UpdateNotification(window.SW_CONFIG);
     }
 });

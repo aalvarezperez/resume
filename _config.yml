@@ -10,6 +10,7 @@ lang: "en"
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-assets
 
 # Cache settings
 headers:
@@ -38,3 +39,9 @@ exclude:
   - gemfiles
   - node_modules
   # keep any other paths you truly want out of the build
+
+# Service Worker Configuration
+service_worker:
+  enabled: true
+  version: !ruby/object:Time
+    epoch: <%= Time.now.to_i %>
