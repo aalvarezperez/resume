@@ -1,6 +1,22 @@
 title: Resume — Alejandro Alvarez Perez
 repository: aalvarezperez/resume
 baseurl: "/resume"
+description: "Professional resume and portfolio of Alejandro Alvarez Perez, showcasing experience in software engineering and development."
+author: Alejandro Alvarez Perez
+url: "https://aalvarezperez.github.io/resume"
+lang: "en"
+
+# SEO and Site plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Cache settings
+headers:
+  - scope:
+      path: ""
+    values:
+      cache_control: "no-cache, no-store, must-revalidate"
 
 # Only include what Pages really needs
 include:
