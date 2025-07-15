@@ -5,6 +5,11 @@
     <meta name="author" content="{{ site.author }}">
     <meta name="robots" content="index, follow">
 
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="{{ site.data.resume.title }}">
     <meta property="og:description" content="{{ site.description }}">
@@ -18,7 +23,7 @@
 
     <title>{{ site.data.resume.title }}</title>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
     <script src="https://kit.fontawesome.com/4336f727d2.js" crossorigin="anonymous"></script>
 
     {% seo title=false %}
