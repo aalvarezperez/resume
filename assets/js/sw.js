@@ -9,11 +9,21 @@ self.addEventListener('message', (event) => {
 });
 
 const CACHE_NAME = 'resume-cache-v1';
+
+// Get the base URL from the service worker's scope
+const getBaseUrl = () => self.registration.scope;
+
+// Add base URL to paths
+const addBaseUrl = (url) => {
+    const baseUrl = getBaseUrl();
+    return new URL(url.startsWith('/') ? url.slice(1) : url, baseUrl).href;
+};
+
 const ASSETS_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/assets/css/resume.css',
-    '/assets/js/update-notification.js'
+    '/resume/',
+    '/resume/index.html',
+    '/resume/assets/css/resume.css',
+    '/resume/assets/js/update-notification.js'
 ];
 
 // Install event
@@ -22,7 +32,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('[ServiceWorker] Caching app shell');
-            return cache.addAll(ASSETS_TO_CACHE.map(url => new URL(url, self.registration.scope)));
+            return cache.addAll(ASSETS_TO_CACHE);
         })
     );
 });
