@@ -26,5 +26,21 @@
     <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
     <script src="https://kit.fontawesome.com/4336f727d2.js" crossorigin="anonymous"></script>
 
+    <style>
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .toast-notification {
+            opacity: 0.95;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .toast-notification:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <script defer src="{{ '/assets/js/update-notification.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
+
     {% seo title=false %}
 </head>
