@@ -70,8 +70,10 @@ layout: default
                 <h3 class="block-title">
                     {{ skill.title }}
                 </h3>
-                <div class="block-content">
-                    {{ skill.items }}
+                <div class="block-content skill-pills">
+                    {% for item in skill.items %}
+                    <span class="pill">{{ item }}</span>
+                    {% endfor %}
                 </div>
             </div>
             {% endfor %}
