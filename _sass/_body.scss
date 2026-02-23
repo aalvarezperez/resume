@@ -48,9 +48,18 @@ section {
 }
 
 .block-subtitle {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
   font-size: 1rem;
   margin-bottom: 1rem;
   color: $secondary-color;
+}
+
+.company-logo {
+  height: 1.2rem;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .block-content {
@@ -75,11 +84,6 @@ section {
   line-height: 1.4;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 6px;
-  vertical-align: top;
-}
 
 @media screen and (max-width: $breakpoint) {
   section {
