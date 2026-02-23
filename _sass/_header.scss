@@ -1,6 +1,6 @@
 header {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
+  flex-direction: column;
   justify-content: space-between;
   border-bottom: .1rem solid $secondary-color;
   padding-top: 2.2rem;
@@ -28,13 +28,11 @@ header {
   margin-top: .8rem;
 }
 
-
 .contact {
-  display: flex; /* Enable flex layout for icons */
+  display: flex;
   flex-wrap: wrap;
-  //align-items: center;
   justify-content: flex-end;
-  gap: 0.5rem; /* Optional: space between icons */
+  gap: 0.5rem;
   font-size: 1rem;
   padding-top: 1rem;
 }
@@ -55,9 +53,6 @@ header {
   justify-content: space-between;
 }
 
-.header-bottomrow {
-}
-
 @media screen and (max-width: $breakpoint) {
   header {
     display: block;
@@ -70,8 +65,7 @@ header {
   }
 
   .header-toprow {
-    display: flex;
-    justify-content: space-between;
+    display: block;
   }
 
   .header-bottomrow {

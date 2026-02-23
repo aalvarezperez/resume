@@ -4,17 +4,18 @@ section {
   padding-bottom: 2.4rem;
   padding-left: .2rem;
   border-bottom: .1rem solid $secondary-color;
-  hyphens: auto;
 }
 
 .section-title {
   font-size: 1.6rem;
+  font-weight: normal;
   text-align: left;
   min-width: 10rem;
+  margin: 0;
 }
 
-// scss-lint:disable EmptyRule
 .section-content {
+  flex: 1;
 }
 
 .section-flex {
@@ -40,6 +41,7 @@ section {
 
 .block-title {
   font-size: 1.2rem;
+  margin-top: 0;
   margin-bottom: .4rem;
   font-weight: bold;
 }
@@ -53,6 +55,12 @@ section {
 .block-content {
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 6px;
+  vertical-align: top;
 }
 
 @media screen and (max-width: $breakpoint) {
@@ -78,7 +86,14 @@ section {
   }
 }
 
+@media print {
+  .block {
+    page-break-inside: avoid;
+  }
 
-
-
-
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: .8rem;
+    color: $secondary-color;
+  }
+}
