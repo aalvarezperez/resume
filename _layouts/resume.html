@@ -33,37 +33,48 @@ layout: default
     </header>
 
     <section id="experience">
-        <h2 class="section-title">
-            Experience
-        </h2>
+        <h2 class="section-title">Experience</h2>
         <div class="section-content">
-            {% for exp in site.data.resume.experience %}
-            <div class="block">
-                <h3 class="block-title">
-                    {{ exp.title }}
-                </h3>
-                <div class="block-subtitle">
-                    {% if exp.logo %}
-                    <img src="{{ exp.logo }}" alt="{{ exp.company }} logo" class="company-logo">
-                    {% endif %}
-                    <span>{{ exp.duration }} | {{ exp.company }}</span>
+            <div class="timeline">
+                {% for exp in site.data.resume.experience %}
+                {% assign next_exp = site.data.resume.experience[forloop.index] %}
+                {% assign prev_index = forloop.index0 | minus: 1 %}
+                {% assign prev_exp = site.data.resume.experience[prev_index] %}
+                {% assign connected_down = false %}
+                {% assign continued = false %}
+                {% if exp.group and next_exp.group == exp.group %}{% assign connected_down = true %}{% endif %}
+                {% if exp.group and prev_exp.group == exp.group and forloop.first == false %}{% assign continued = true %}{% endif %}
+                <div class="timeline-entry{% unless connected_down %} timeline-entry--last{% endunless %}{% if continued %} timeline-entry--continued{% endif %}">
+                    <div class="timeline-marker">
+                        {% if continued %}
+                        <div class="timeline-dot"></div>
+                        {% elsif exp.logo %}
+                        <img src="{{ exp.logo }}" alt="{{ exp.company }} logo" class="timeline-logo">
+                        {% else %}
+                        <div class="timeline-dot"></div>
+                        {% endif %}
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="block-title">{{ exp.title }}</h3>
+                        <div class="block-subtitle">{{ exp.duration }} | {{ exp.company }}</div>
+                        {% if exp.description %}
+                        <div class="block-content">
+                            <ul>
+                                {% for line in exp.description %}
+                                <li>{{ line }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="block-content">
-                    <ul>
-                        {% for line in exp.description %}
-                        <li>{{ line }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
 
     <section id="skills">
-        <h2 class="section-title">
-            Skills
-        </h2>
+        <h2 class="section-title">Skills</h2>
         <div class="section-content">
             {% for skill in site.data.resume.skills %}
             <div class="block">
@@ -81,33 +92,42 @@ layout: default
     </section>
 
     <section id="education">
-        <h2 class="section-title">
-            Education
-        </h2>
+        <h2 class="section-title">Education</h2>
         <div class="section-content">
-            {% for edu in site.data.resume.education %}
-            <div class="block">
-                <h3 class="block-title">
-                    {{ edu.university }}
-                </h3>
-                <div class="block-subtitle">
-                    {% if edu.logo %}
-                    <img src="{{ edu.logo }}" alt="{{ edu.location }} logo" class="company-logo">
-                    {% endif %}
-                    <span>{{ edu.duration }} | {{ edu.location }}</span>
+            <div class="timeline">
+                {% for edu in site.data.resume.education %}
+                {% assign next_edu = site.data.resume.education[forloop.index] %}
+                {% assign prev_edu_index = forloop.index0 | minus: 1 %}
+                {% assign prev_edu = site.data.resume.education[prev_edu_index] %}
+                {% assign connected_down = false %}
+                {% assign continued = false %}
+                {% if edu.group and next_edu.group == edu.group %}{% assign connected_down = true %}{% endif %}
+                {% if edu.group and prev_edu.group == edu.group and forloop.first == false %}{% assign continued = true %}{% endif %}
+                <div class="timeline-entry{% unless connected_down %} timeline-entry--last{% endunless %}{% if continued %} timeline-entry--continued{% endif %}">
+                    <div class="timeline-marker">
+                        {% if continued %}
+                        <div class="timeline-dot"></div>
+                        {% elsif edu.logo %}
+                        <img src="{{ edu.logo }}" alt="{{ edu.location }} logo" class="timeline-logo">
+                        {% else %}
+                        <div class="timeline-dot"></div>
+                        {% endif %}
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="block-title">{{ edu.university }}</h3>
+                        <div class="block-subtitle">{{ edu.duration }} | {{ edu.location }}</div>
+                        {% if edu.major %}
+                        <div class="block-content">{{ edu.major }}</div>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="block-content">
-                    {{ edu.major }}
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title">
-            Projects
-        </h2>
+        <h2 class="section-title">Projects</h2>
         <div class="section-content">
             {% for project in site.data.resume.projects %}
             <div class="block">

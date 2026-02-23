@@ -21,11 +21,13 @@ education:
     duration: Aug 2017 - Jun 2018
     location: University of Amsterdam
     logo: assets/images/Amsterdamuniversitylogo.svg.png
+    group: uva
     major:
   - university: BSc, Psychological Research Methods and Statistics
     duration: Jul 2014 - Dec 2017
     location: University of Amsterdam
     logo: assets/images/Amsterdamuniversitylogo.svg.png
+    group: uva
     major:
 skills:
   - title: Organisational
@@ -93,6 +95,7 @@ experience:
     duration: Sep 2019 - Apr 2023
     company: eBay (classifieds group)
     logo: assets/images/EBay_logo.svg.png
+    group: ebay
     description:
       - Cut data scientist-hours by 3h per experiment, and reduced experiment runtime by 20% as core dev and statistician for internal experimentation python package
       - Trained 150+ colleagues across product, marketing, and finance in structured opportunity finding through our internal Analytics University
@@ -102,6 +105,7 @@ experience:
     duration: Nov 2018 - Sep 2019
     company: eBay (classifieds group)
     logo: assets/images/EBay_logo.svg.png
+    group: ebay
     description:
       - Uncovered potential to verticalise categories, through advanced statistical modeling and simulation
       - Shaped global strategy to fight fraud, by identifying the impact of exposure to fraud on our products and business, using econometric methods for causal inference
@@ -110,6 +114,7 @@ experience:
     duration: May 2018 - Nov 2018
     company: eBay (classifieds group)
     logo: assets/images/EBay_logo.svg.png
+    group: ebay
     description:
       - Quantitatively validating customer experience metrics; Customer Effort Score, Smile Metric. Ad-hoc analyses and deep-dives on user behaviour
 

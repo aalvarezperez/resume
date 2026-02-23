@@ -1,8 +1,6 @@
 section {
-  display: flex;
-  padding-top: 2.4rem;
-  padding-bottom: 2.4rem;
-  padding-left: .2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   border-bottom: .1rem solid $secondary-color;
 }
 
@@ -10,50 +8,123 @@ section {
   font-family: $font-heading;
   font-size: 1.4rem;
   font-weight: normal;
-  text-align: left;
-  min-width: 10rem;
-  margin: 0;
+  margin: 0 0 1.2rem 0;
 }
 
 .section-content {
-  flex: 1;
+  width: 100%;
 }
 
-.section-flex {
-  display: flex;
-  flex-wrap: wrap;
+// Timeline
+
+.timeline {
+  position: relative;
 }
+
+.timeline-entry {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  // Line going DOWN from this entry to the next
+  &::after {
+    content: "";
+    position: absolute;
+    left: calc(1.1rem - 1px);
+    top: 2.8rem;           // below 2.2rem logo + gap
+    bottom: 0;
+    width: 2px;
+    background-color: #e0dcd7;
+    display: none;
+  }
+
+  &:not(.timeline-entry--last)::after {
+    display: block;
+  }
+
+  // Dot entries: line starts well below the dot
+  &--continued:not(.timeline-entry--last)::after {
+    top: 1.6rem;
+  }
+
+  // Line going UP into this entry, stops well above the dot
+  &--continued::before {
+    content: "";
+    position: absolute;
+    left: calc(1.1rem - 1px);
+    top: 0;
+    height: .15rem;
+    width: 2px;
+    background-color: #e0dcd7;
+  }
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-logo {
+  width: 2.2rem;
+  height: 2.2rem;
+  object-fit: contain;
+  border-radius: 4px;
+  background: $background-color;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-dot {
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  background-color: #b0aba5;
+  margin-top: .45rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+// Blocks
 
 .block {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 
   &:last-child {
     margin-bottom: 0;
   }
 }
 
-.block-square {
-  width: 18rem;
-
-  &:nth-last-child(2) {
-    margin-bottom: 0;
-  }
-}
-
 .block-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-top: 0;
-  margin-bottom: .4rem;
+  margin-bottom: .2rem;
   font-weight: bold;
 }
 
 .block-subtitle {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: .9rem;
+  margin-bottom: .6rem;
   color: $secondary-color;
+}
+
+.block-content {
+  font-size: .95rem;
+  line-height: 1.6;
 }
 
 .company-logo {
@@ -62,10 +133,7 @@ section {
   flex-shrink: 0;
 }
 
-.block-content {
-  font-size: 1rem;
-  line-height: 1.5;
-}
+// Skills
 
 .skill-pills {
   display: flex;
@@ -84,32 +152,19 @@ section {
   line-height: 1.4;
 }
 
+// Mobile
 
 @media screen and (max-width: $breakpoint) {
-  section {
-    display: block;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .section-title {
     text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .section-flex {
-    display: block;
-  }
-
-  .block-square {
-    &:nth-last-child(2) {
-      margin-bottom: 2rem;
-    }
   }
 }
 
+// Print
+
 @media print {
-  .block {
+  .block,
+  .timeline-entry {
     page-break-inside: avoid;
   }
 
@@ -117,5 +172,10 @@ section {
     content: " (" attr(href) ")";
     font-size: .8rem;
     color: $secondary-color;
+  }
+
+  .timeline-entry::after,
+  .timeline-entry--continued::before {
+    background-color: #ccc;
   }
 }
