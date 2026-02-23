@@ -125,21 +125,4 @@ layout: default
         </div>
     </section>
 
-    <section id="languages">
-        <h2 class="section-title">
-            Languages
-        </h2>
-        <div class="section-content section-flex">
-            {% for language in site.data.resume.languages %}
-            <div class="block block-square">
-                <h3 class="block-title">
-                    {{ language.name }}
-                </h3>
-                <div class="block-content">
-                    {{ language.proficiency }}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
 </div>
