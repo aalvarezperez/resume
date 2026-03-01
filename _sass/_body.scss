@@ -36,7 +36,7 @@ section {
     content: "";
     position: absolute;
     left: calc(1.1rem - 1px);
-    top: 2.8rem;           // below 2.2rem logo + gap
+    top: 2.5rem;           // below 2.2rem logo + gap
     bottom: 0;
     width: 2px;
     background-color: #e0dcd7;
@@ -47,9 +47,9 @@ section {
     display: block;
   }
 
-  // Dot entries: line starts well below the dot
+  // Dot entries: line starts below the dot with matching gap
   &--continued:not(.timeline-entry--last)::after {
-    top: 1.6rem;
+    top: 1.25rem;
   }
 
   // Line going UP into this entry, stops well above the dot
@@ -58,7 +58,7 @@ section {
     position: absolute;
     left: calc(1.1rem - 1px);
     top: 0;
-    height: .15rem;
+    height: .25rem;
     width: 2px;
     background-color: #e0dcd7;
   }

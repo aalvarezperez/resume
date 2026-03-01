@@ -1,7 +1,7 @@
 title: Resume
 name: Alejandro Alvarez Pérez
 jobtitle: Staff Data Scientist | Causal Inference and Experimentation
-headline: Staff Data Scientist specializing in causal inference and experimentation. I build the methods, teams, and culture that turn experiments into revenue decisions. 7+ years in marketplace product analytics across European and global markets.
+headline: Staff Data Scientist specializing in causal inference and experimentation. I build the methods and culture that turn experiments into product wins and business results. 7+ years in marketplace product analytics and B2B SaaS across European and global markets.
 contact:
   - icon: fa-linkedin
     text: LinkedIn profile
@@ -68,7 +68,7 @@ skills:
       - Databricks
   - title: Languages
     items:
-      - English (native)
+      - English (proficient)
       - Dutch (native)
       - Spanish (native)
       - French (advanced)
