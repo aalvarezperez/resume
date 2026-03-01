@@ -1,23 +1,8 @@
-// Initialize VERSION variable
-let VERSION;
-
-// Get version from registration
-self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SET_VERSION') {
-        VERSION = event.data.version;
-    }
-});
-
-const CACHE_NAME = 'resume-cache-v1';
-
-// Get the base URL from the service worker's scope
-const getBaseUrl = () => self.registration.scope;
-
-// Add base URL to paths
-const addBaseUrl = (url) => {
-    const baseUrl = getBaseUrl();
-    return new URL(url.startsWith('/') ? url.slice(1) : url, baseUrl).href;
-};
+---
+layout: null
+---
+const VERSION = '{{ site.time | date: "%Y%m%d%H%M%S" }}';
+const CACHE_NAME = `resume-cache-${VERSION}`;
 
 const ASSETS_TO_CACHE = [
     '/resume/',
@@ -28,7 +13,7 @@ const ASSETS_TO_CACHE = [
 
 // Install event
 self.addEventListener('install', (event) => {
-    console.log('[ServiceWorker] Installing new version');
+    console.log('[ServiceWorker] Installing version', VERSION);
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('[ServiceWorker] Caching app shell');
@@ -37,9 +22,9 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Activate event
+// Activate event — clean up old caches
 self.addEventListener('activate', (event) => {
-    console.log('[ServiceWorker] Activating new version');
+    console.log('[ServiceWorker] Activating version', VERSION);
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
@@ -51,7 +36,7 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event
+// Fetch event — network first, cache fallback
 self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') return;
 

@@ -12,7 +12,7 @@
 
     <title>{{ site.data.resume.title }}</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/resume.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/resume.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
     <script defer src="https://kit.fontawesome.com/4336f727d2.js" crossorigin="anonymous"></script>
 
     <!-- Service Worker Configuration -->
@@ -20,7 +20,7 @@
         window.SW_CONFIG = {
             baseUrl: '{{ site.baseurl }}',
             enabled: {{ site.service_worker.enabled | default: true }},
-            version: '{{ site.service_worker.version | default: site.time | date: "%Y%m%d%H%M%S" }}',
+            version: '{{ site.time | date: "%Y%m%d%H%M%S" }}',
             messages: {
                 title: 'Update Available',
                 body: 'A new version of this site is available.',

@@ -43,5 +43,3 @@ exclude:
 # Service Worker Configuration
 service_worker:
   enabled: true
-  version: !ruby/object:Time
-    epoch: <%= Time.now.to_i %>
