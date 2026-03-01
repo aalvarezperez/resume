@@ -12,13 +12,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-assets
 
-# Cache settings
-headers:
-  - scope:
-      path: ""
-    values:
-      cache_control: "no-cache, no-store, must-revalidate"
-
 # Only include what Pages really needs
 include:
   - _assets
