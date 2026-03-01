@@ -36,6 +36,10 @@ Ruby 3.4.5 required (see `script/.ruby-version`).
 
 **Deployment**: Pushes to `master` trigger GitHub Actions (`.github/workflows/pages.yml`) which build and deploy to GitHub Pages. PRs run a build check via `ci.yml`.
 
+## Git
+
+Do NOT add a `Co-Authored-By` line to commits in this project.
+
 ## Key Files
 
 - `_data/resume.yml` — all resume content
