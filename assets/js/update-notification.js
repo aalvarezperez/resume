@@ -57,6 +57,14 @@ class UpdateNotification {
     }
 
     async init() {
+        // Reload once when a new SW takes control
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (!this.refreshing) {
+                this.refreshing = true;
+                window.location.reload();
+            }
+        });
+
         try {
             const registration = await navigator.serviceWorker.register(
                 `${this.config.baseUrl}/assets/js/sw.js`

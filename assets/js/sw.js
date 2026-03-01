@@ -11,9 +11,10 @@ const ASSETS_TO_CACHE = [
     '/resume/assets/js/update-notification.js'
 ];
 
-// Install event
+// Install event — activate immediately, don't wait for old SW to release
 self.addEventListener('install', (event) => {
     console.log('[ServiceWorker] Installing version', VERSION);
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('[ServiceWorker] Caching app shell');
@@ -22,7 +23,7 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Activate event — clean up old caches
+// Activate event — take over all tabs and clean up old caches
 self.addEventListener('activate', (event) => {
     console.log('[ServiceWorker] Activating version', VERSION);
     event.waitUntil(
@@ -32,7 +33,7 @@ self.addEventListener('activate', (event) => {
                     .filter((name) => name !== CACHE_NAME)
                     .map((name) => caches.delete(name))
             );
-        })
+        }).then(() => self.clients.claim())
     );
 });
 
@@ -48,10 +49,3 @@ self.addEventListener('fetch', (event) => {
     );
 });
 
-// Message event for cache updates
-self.addEventListener('message', event => {
-    if (event.data === 'skipWaiting') {
-        console.log('[ServiceWorker] Skip waiting and activating new version');
-        self.skipWaiting();
-    }
-});
