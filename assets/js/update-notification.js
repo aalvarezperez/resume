@@ -1,8 +1,8 @@
-// UpdateNotification class
 class UpdateNotification {
     constructor(config) {
         this.config = config;
         this.refreshing = false;
+        this.waitingWorker = null;
 
         if ('serviceWorker' in navigator && config.enabled) {
             this.init();
@@ -10,7 +10,6 @@ class UpdateNotification {
     }
 
     createToastElement() {
-        // Create toast container if it doesn't exist
         let container = document.getElementById('toast-container');
         if (!container) {
             container = document.createElement('div');
@@ -20,7 +19,6 @@ class UpdateNotification {
             document.body.appendChild(container);
         }
 
-        // Create toast element
         const toastHtml = `
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -37,15 +35,14 @@ class UpdateNotification {
         `;
         container.innerHTML = toastHtml;
 
-        // Initialize Bootstrap toast
         this.toastEl = container.querySelector('.toast');
-        this.toast = new bootstrap.Toast(this.toastEl, {
-            autohide: false
-        });
+        this.toast = new bootstrap.Toast(this.toastEl, { autohide: false });
 
-        // Add update button click handler
         this.toastEl.querySelector('.update-button').addEventListener('click', () => {
-            window.location.reload();
+            if (this.waitingWorker) {
+                this.waitingWorker.postMessage('SKIP_WAITING');
+            }
+            this.toast.hide();
         });
     }
 
@@ -57,7 +54,6 @@ class UpdateNotification {
     }
 
     async init() {
-        // Reload once when a new SW takes control
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             if (!this.refreshing) {
                 this.refreshing = true;
@@ -70,23 +66,26 @@ class UpdateNotification {
                 `${this.config.baseUrl}/assets/js/sw.js`
             );
 
-            // Show notification only when there's a new service worker waiting
+            if (registration.waiting) {
+                this.waitingWorker = registration.waiting;
+                this.show();
+            }
+
             registration.addEventListener('updatefound', () => {
                 const newWorker = registration.installing;
                 newWorker.addEventListener('statechange', () => {
                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        this.waitingWorker = newWorker;
                         this.show();
                     }
                 });
             });
-
         } catch (error) {
             console.error('Service Worker registration failed:', error);
         }
     }
 }
 
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     if (window.SW_CONFIG) {
         new UpdateNotification(window.SW_CONFIG);

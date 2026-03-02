@@ -11,53 +11,40 @@ const ASSETS_TO_CACHE = [
     '/resume/assets/js/update-notification.js'
 ];
 
-// Install event — activate immediately, bypass HTTP cache for precaching
 self.addEventListener('install', (event) => {
-    console.log('[ServiceWorker] Installing version', VERSION);
-    self.skipWaiting();
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return Promise.all(
-                ASSETS_TO_CACHE.map((url) =>
-                    fetch(url, { cache: 'no-store' }).then((res) => cache.put(url, res))
-                )
-            );
+        caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
+    );
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((keys) =>
+            Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+        )
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    if (event.request.method !== 'GET') return;
+
+    event.respondWith(
+        caches.match(event.request).then((cached) => {
+            if (cached) return cached;
+
+            return fetch(event.request).then((response) => {
+                if (event.request.method === 'GET') {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+                }
+                return response;
+            });
         })
     );
 });
 
-// Activate event — take over all tabs and clean up old caches
-self.addEventListener('activate', (event) => {
-    console.log('[ServiceWorker] Activating version', VERSION);
-    event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames
-                    .filter((name) => name !== CACHE_NAME)
-                    .map((name) => caches.delete(name))
-            );
-        }).then(() => self.clients.claim())
-    );
+self.addEventListener('message', (event) => {
+    if (event.data === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });
-
-// Fetch event — true network first (bypass HTTP cache), SW cache fallback
-self.addEventListener('fetch', (event) => {
-    if (event.request.method !== 'GET') return;
-
-    const fetchOptions = event.request.mode === 'navigate'
-        ? { cache: 'no-store' }
-        : {};
-
-    event.respondWith(
-        fetch(event.request, fetchOptions)
-            .then((response) => {
-                const clone = response.clone();
-                caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-                return response;
-            })
-            .catch(() => {
-                return caches.match(event.request);
-            })
-    );
-});
-
