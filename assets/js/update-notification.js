@@ -63,7 +63,7 @@ class UpdateNotification {
 
         try {
             const registration = await navigator.serviceWorker.register(
-                `${this.config.baseUrl}/assets/js/sw.js`
+                `${this.config.baseUrl}/sw.js`
             );
 
             if (registration.waiting) {

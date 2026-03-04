@@ -46,5 +46,5 @@ Do NOT add a `Co-Authored-By` line to commits in this project.
 - `_config.yml` — Jekyll config, baseurl `/resume`, service worker settings
 - `_layouts/resume.html` — main template rendering resume data
 - `_includes/head.html` — SW_CONFIG injection, CDN links
-- `assets/js/sw.js` — service worker
+- `sw.js` — service worker (must be at site root for correct scope)
 - `assets/js/update-notification.js` — new-version toast logic
