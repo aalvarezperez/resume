@@ -1,0 +1,172 @@
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 12mm;
+  }
+
+  html {
+    font-size: 9.5px;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  footer,
+  nav,
+  .contact-item--print {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  // Header
+  header {
+    padding-top: .8rem;
+    padding-bottom: .6rem;
+    border-bottom-color: #999;
+  }
+
+  .name-wrapper {
+    padding: .3rem .5rem .3rem 0;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    color: #000;
+  }
+
+  .sub-title {
+    font-size: .95rem;
+    margin-top: .3rem;
+  }
+
+  .headline {
+    font-size: .85rem;
+    margin-top: .3rem;
+    line-height: 1.4;
+  }
+
+  .contact {
+    padding-top: .3rem;
+    gap: .3rem;
+  }
+
+  .contact-item {
+    font-size: 1rem;
+    margin-top: .2rem;
+  }
+
+  // Sections
+  section {
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+    border-bottom-color: #ccc;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin: 0 0 .4rem 0;
+  }
+
+  // Blocks
+  .block {
+    margin-bottom: .5rem;
+  }
+
+  .block-title {
+    font-size: .9rem;
+    margin-bottom: .1rem;
+  }
+
+  .block-subtitle {
+    font-size: .75rem;
+    margin-bottom: .2rem;
+    color: #555;
+  }
+
+  .block-content {
+    font-size: .8rem;
+    line-height: 1.35;
+
+    ul {
+      margin: .1rem 0;
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: .05rem;
+    }
+  }
+
+  // Timeline
+  .timeline-entry {
+    padding-bottom: .4rem;
+    page-break-inside: avoid;
+  }
+
+  .timeline-logo {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 2px;
+    background: #fff;
+  }
+
+  .timeline-dot {
+    width: .4rem;
+    height: .4rem;
+    margin-top: .3rem;
+    background-color: #999;
+  }
+
+  .timeline-marker {
+    width: 1.4rem;
+  }
+
+  .timeline-entry::after,
+  .timeline-entry--continued::before {
+    display: none !important;
+  }
+
+  // Skills
+  .skill-pills {
+    gap: .2rem;
+  }
+
+  .pill {
+    font-size: .7rem;
+    padding: .1rem .45rem;
+    border-color: #bbb;
+    background: transparent;
+    line-height: 1.3;
+  }
+
+  #skills .block {
+    margin-bottom: .3rem;
+  }
+
+  #skills .block-title {
+    font-size: .8rem;
+    margin-bottom: .05rem;
+  }
+
+  // Links
+  a[href]::after {
+    content: none !important;
+  }
+
+  // Page breaks
+  .block,
+  section {
+    page-break-inside: avoid;
+  }
+}

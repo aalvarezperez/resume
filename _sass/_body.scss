@@ -160,22 +160,3 @@ section {
   }
 }
 
-// Print
-
-@media print {
-  .block,
-  .timeline-entry {
-    page-break-inside: avoid;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-    font-size: .8rem;
-    color: $secondary-color;
-  }
-
-  .timeline-entry::after,
-  .timeline-entry--continued::before {
-    background-color: #ccc;
-  }
-}
