@@ -50,12 +50,12 @@ header {
 }
 
 .contact-item--print {
-  margin-left: .25rem;
-  padding-left: .75rem;
+  margin-left: .125rem;
+  padding-left: .375rem;
 
   &::before {
     content: "\00B7";
-    margin-right: .75rem;
+    margin-right: .375rem;
     color: $secondary-color;
     font-weight: bold;
     font-size: 1.5rem;
