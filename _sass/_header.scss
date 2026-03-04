@@ -52,7 +52,16 @@ header {
 .contact-item--print {
   margin-left: .25rem;
   padding-left: .75rem;
-  border-left: 1px solid $secondary-color;
+
+  &::before {
+    content: "\00B7";
+    margin-right: .75rem;
+    color: $secondary-color;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    vertical-align: middle;
+  }
 }
 
 .header-toprow {
