@@ -9,48 +9,47 @@ class UpdateNotification {
         }
     }
 
-    createToastElement() {
-        let container = document.getElementById('toast-container');
-        if (!container) {
-            container = document.createElement('div');
-            container.id = 'toast-container';
-            container.className = 'position-fixed bottom-0 end-0 p-3';
-            container.style.zIndex = '11';
-            document.body.appendChild(container);
-        }
-
-        const toastHtml = `
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <strong class="me-auto">${this.config.messages.title}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body d-flex justify-content-between align-items-center">
-                    <span>${this.config.messages.body}</span>
-                    <button class="btn btn-primary btn-sm ms-3 update-button">
-                        ${this.config.messages.button}
-                    </button>
-                </div>
-            </div>
+    createNotification() {
+        const el = document.createElement('div');
+        el.id = 'update-notification';
+        el.innerHTML = `
+            <p>${this.config.messages.body}</p>
+            <button class="btn btn-primary btn-sm">${this.config.messages.button}</button>
         `;
-        container.innerHTML = toastHtml;
+        Object.assign(el.style, {
+            position: 'fixed',
+            bottom: '2rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: '9999',
+            background: '#fff',
+            border: '1px solid #ddd',
+            borderRadius: '.5rem',
+            padding: '1rem 1.5rem',
+            boxShadow: '0 4px 20px rgba(0,0,0,.15)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+            fontFamily: 'inherit',
+            fontSize: '.9rem'
+        });
+        el.querySelector('p').style.margin = '0';
 
-        this.toastEl = container.querySelector('.toast');
-        this.toast = new bootstrap.Toast(this.toastEl, { autohide: false });
-
-        this.toastEl.querySelector('.update-button').addEventListener('click', () => {
+        el.querySelector('button').addEventListener('click', () => {
             if (this.waitingWorker) {
                 this.waitingWorker.postMessage('SKIP_WAITING');
             }
-            this.toast.hide();
+            el.remove();
         });
+
+        this.notification = el;
     }
 
     show() {
-        if (!this.toastEl) {
-            this.createToastElement();
+        if (!this.notification) {
+            this.createNotification();
         }
-        this.toast.show();
+        document.body.appendChild(this.notification);
     }
 
     async init() {
