@@ -5,12 +5,12 @@
   }
 
   html {
-    font-size: 9.5px;
+    font-size: 12px;
   }
 
   body {
-    color: #000;
-    background: #fff;
+    color: $main-color;
+    background-color: $background-color;
     margin: 0;
     padding: 0;
     -webkit-print-color-adjust: exact;
@@ -33,7 +33,7 @@
   header {
     padding-top: .8rem;
     padding-bottom: .6rem;
-    border-bottom-color: #999;
+    border-bottom-color: $secondary-color;
   }
 
   .name-wrapper {
@@ -41,17 +41,16 @@
   }
 
   .title {
-    font-size: 1.6rem;
-    color: #000;
+    font-size: 1.8rem;
   }
 
   .sub-title {
-    font-size: .95rem;
+    font-size: 1rem;
     margin-top: .3rem;
   }
 
   .headline {
-    font-size: .85rem;
+    font-size: .9rem;
     margin-top: .3rem;
     line-height: 1.4;
   }
@@ -70,11 +69,11 @@
   section {
     padding-top: .6rem;
     padding-bottom: .6rem;
-    border-bottom-color: #ccc;
+    border-bottom-color: $secondary-color;
   }
 
   .section-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin: 0 0 .4rem 0;
   }
 
@@ -84,19 +83,19 @@
   }
 
   .block-title {
-    font-size: .9rem;
+    font-size: .95rem;
     margin-bottom: .1rem;
   }
 
   .block-subtitle {
-    font-size: .75rem;
+    font-size: .8rem;
     margin-bottom: .2rem;
-    color: #555;
+    color: $secondary-color;
   }
 
   .block-content {
-    font-size: .8rem;
-    line-height: 1.35;
+    font-size: .85rem;
+    line-height: 1.4;
 
     ul {
       margin: .1rem 0;
@@ -115,39 +114,51 @@
   }
 
   .timeline-logo {
-    width: 1.4rem;
-    height: 1.4rem;
-    border-radius: 2px;
-    background: #fff;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 3px;
+    background: $background-color;
   }
 
   .timeline-dot {
-    width: .4rem;
-    height: .4rem;
-    margin-top: .3rem;
-    background-color: #999;
+    width: .5rem;
+    height: .5rem;
+    margin-top: .35rem;
+    background-color: #b0aba5;
   }
 
   .timeline-marker {
-    width: 1.4rem;
+    width: 1.8rem;
   }
 
-  .timeline-entry::after,
+  // Timeline lines: reposition for 1.8rem marker (screen uses 2.2rem)
+  .timeline-entry::after {
+    left: calc(0.9rem - 1px);
+    top: 2.1rem;
+    background-color: #e0dcd7;
+  }
+
+  .timeline-entry--continued:not(.timeline-entry--last)::after {
+    top: 1rem;
+  }
+
   .timeline-entry--continued::before {
-    display: none !important;
+    left: calc(0.9rem - 1px);
+    background-color: #e0dcd7;
   }
 
   // Skills
   .skill-pills {
-    gap: .2rem;
+    gap: .25rem;
   }
 
   .pill {
-    font-size: .7rem;
-    padding: .1rem .45rem;
-    border-color: #bbb;
-    background: transparent;
-    line-height: 1.3;
+    font-size: .75rem;
+    padding: .15rem .5rem;
+    border-color: #d5d0cb;
+    background-color: rgba(0, 0, 0, .018);
+    color: $main-color;
+    line-height: 1.35;
   }
 
   #skills .block {
@@ -155,7 +166,7 @@
   }
 
   #skills .block-title {
-    font-size: .8rem;
+    font-size: .85rem;
     margin-bottom: .05rem;
   }
 
@@ -168,5 +179,6 @@
   .block,
   section {
     page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
