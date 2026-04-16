@@ -34,6 +34,10 @@ layout: default
             <div id="headline" class="headline">
                 {{ site.data.resume.headline }}
             </div>
+            <div class="print-url">
+                <i class="fa fa-link" aria-hidden="true"></i>
+                <a href="https://aalvarezperez.github.io/resume">aalvarezperez.github.io/resume</a>
+            </div>
         </div>
     </header>
 
@@ -131,23 +135,31 @@ layout: default
         </div>
     </section>
 
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-content">
-            {% for project in site.data.resume.projects %}
-            <div class="block">
-                <h3 class="block-title">
-                    {{ project.name }}
-                </h3>
-                <div class="block-subtitle">
-                    {{ project.contribution }}
-                    {% if project.link %}<a href="{{ project.link }}" target="_blank"> @ {{ project.link }}</a>
-                    {% endif %}
+    <section id="projects-activities">
+        <h2 class="section-title">Projects and Activities</h2>
+        <div class="section-content cards-grid">
+            {% for item in site.data.resume.projects_and_activities %}
+            {% if item.link %}
+            <a href="{{ item.link }}" target="_blank" class="card-item card-item--link">
+            {% else %}
+            <div class="card-item">
+            {% endif %}
+                {% if item.image %}
+                <img src="{{ item.image }}" alt="{{ item.title }}" class="card-thumbnail">
+                {% else %}
+                <div class="card-icon">
+                    <i class="fa {{ item.icon }}" aria-hidden="true"></i>
                 </div>
-                <div class="block-content">
-                    {{ project.description }}
+                {% endif %}
+                <div class="card-body">
+                    <h3 class="card-title">{{ item.title }}</h3>
+                    <p class="card-text">{{ item.text }}</p>
                 </div>
+            {% if item.link %}
+            </a>
+            {% else %}
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </section>

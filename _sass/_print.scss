@@ -65,6 +65,23 @@
     margin-top: .2rem;
   }
 
+  .print-url {
+    display: block;
+    margin-top: .3rem;
+    font-size: .8rem;
+    color: $secondary-color;
+
+    a {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+
+    .fa {
+      margin-right: .3rem;
+      font-size: .7rem;
+    }
+  }
+
   // Sections
   section {
     padding-top: .6rem;
@@ -168,6 +185,38 @@
   #skills .block-title {
     font-size: .85rem;
     margin-bottom: .05rem;
+  }
+
+  // Cards
+  .cards-grid {
+    gap: .6rem;
+  }
+
+  .card-item {
+    padding: .6rem .8rem;
+    border-color: #e0dcd7;
+    background-color: rgba(0, 0, 0, .012);
+  }
+
+  .card-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: .9rem;
+    background-color: rgba(0, 0, 0, .035);
+  }
+
+  .card-thumbnail {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3px;
+  }
+
+  .card-title {
+    font-size: .8rem;
+  }
+
+  .card-text {
+    font-size: .7rem;
   }
 
   // Links

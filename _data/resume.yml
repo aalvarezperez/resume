@@ -79,11 +79,11 @@ experience:
     company: Manychat
     logo: assets/images/manychat_logo.jpeg
     description:
-      - "Informed leadership's global rollout decision on a new pricing model. Built a synthetic control pipeline across geo-level holdouts: +31% revenue lift, −16% conversion trade-off."
-      - "Gave the company its first method to estimate long-term experiment impact from short-term data. Built a surrogate index (Athey et al. 2024) now used in the experimentation pipeline."
+      - "Informed leadership's global rollout decision on a new pricing model. Built a synthetic experiment pipeline (Abadie & Zhao, 2021) across geo-level holdouts: +31% revenue lift, −16% conversion trade-off."
+      - "Gave the company its first method to estimate long-term experiment impact from short-term data. Built a long-term proxy index (Athey et al. 2024) now used in the experimentation pipeline."
       - "Reshaped 2026 Inbox team OKRs by sizing a $10M ARR opportunity. Multi-state survival models showed consistency; not intensity; halves churn risk."
-      - "Revealed that the company's core engagement metric is segment-specific: strong retention driver for affiliates, weak for e-commerce. Led a cross-functional working group of 6 and causal inference research."
-      - "Eliminated analyst bottlenecks and enabled technical excellence in experimentation by driving Eppo adoption as company-wide platform. Led a structured POC and designed the governance layer: lifecycle protocols, metric standards, tiered approval."
+      - "Revealed that the company's core engagement metric is segment-specific: strong retention driver for affiliates, weak for e-commerce. Led a cross-functional workshop of 6 and causal inference research."
+      - "Eliminated analyst bottlenecks and enabled technical excellence in experimentation by driving Eppo adoption as company-wide platform. Led a structured POC with a cross-functional stakeholder panel and designed the governance layer: lifecycle protocols, metric standards, tiered approval."
       - "Established an evidence-based product discovery process with a cross-functional squad, scoring rubric, and hypothesis tracker. Redirected the H2 roadmap from feature-building to solving the real adoption barrier."
 
   - title: Staff Data Scientist — experimentation and causal inference
@@ -123,11 +123,18 @@ experience:
       - Validated customer experience metrics (Customer Effort Score, Smile Metric) through quantitative analysis and behavioural deep-dives.
 
 
-projects:
-  - name: Causal Inference Blog
+projects_and_activities:
+  - title: Causal Inference Blog
+    text: "Tech-blog on causal inference and online experimentation"
+    image: assets/images/blog_avatar.png
     link: https://aalvarezperez.github.io
-    description: Tech-blog on causal inference and online experimentation
-    contribution: Author
+  - title: Conference Moderator
+    text: "Moderator at CIRCUS experimentation conference in London — by Datadog"
+    image: assets/images/circus_conference.png
+    link: https://speero.com/circus#moderators
+  - title: Research Publication
+    text: "Paper co-author of experimentation in industry (WIP)"
+    icon: fa-file-lines
 
 languages:
   - name: English
