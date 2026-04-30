@@ -29,6 +29,12 @@ education:
     logo: assets/images/Amsterdamuniversitylogo.svg.png
     group: uva
     major:
+# Skills accept two shapes:
+#   - "Plain string"                   -> static pill, no tooltip, no link
+#   - name: "Skill name"               -> interactive pill
+#     description: "1-2 line context"  -> shown on hover (optional)
+#     url: "https://..."               -> opens in new tab on click (optional)
+# Hover tooltips are hidden in print; links remain clickable in the PDF.
 skills:
   - title: Organisational
     items:
@@ -40,7 +46,9 @@ skills:
       - DoubleML
       - Diff-in-Diff
       - IPSW
-      - Regression Discontinuity Design
+      - name: Regression Discontinuity Design
+        description: "Article I wrote on how RDD works and when to use it."
+        url: https://towardsdatascience.com/regression-discontinuity-design-how-it-works-and-when-to-use-it/
       - Interrupted time series
       - Synthetic Control
       - Regression

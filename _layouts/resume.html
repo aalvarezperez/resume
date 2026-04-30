@@ -92,7 +92,15 @@ layout: default
                 </h3>
                 <div class="block-content skill-pills">
                     {% for item in skill.items %}
+                        {% if item.name %}
+                            {% if item.url %}
+                    <a class="pill pill--linked" href="{{ item.url }}" target="_blank" rel="noopener"{% if item.description %} data-description="{{ item.description | escape }}"{% endif %}>{{ item.name }}</a>
+                            {% else %}
+                    <span class="pill"{% if item.description %} data-description="{{ item.description | escape }}"{% endif %}>{{ item.name }}</span>
+                            {% endif %}
+                        {% else %}
                     <span class="pill">{{ item }}</span>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

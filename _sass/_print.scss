@@ -178,6 +178,16 @@
     line-height: 1.35;
   }
 
+  .pill[data-description]::after {
+    display: none !important;
+  }
+
+  .pill--linked {
+    color: $main-color;
+    text-decoration: none;
+    border-color: #d5d0cb;
+  }
+
   #skills .block {
     margin-bottom: .3rem;
   }
