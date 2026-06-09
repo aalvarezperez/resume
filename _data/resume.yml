@@ -87,10 +87,9 @@ experience:
     company: Manychat
     logo: assets/images/manychat_logo.jpeg
     description:
-      - "Informed leadership's global rollout decision on a new pricing model. Built a synthetic experiment pipeline (Abadie & Zhao, 2021) across geo-level holdouts: +31% revenue lift, −16% conversion trade-off."
-      - "Gave the company its first method to estimate long-term experiment impact from short-term data. Built a long-term proxy index (Athey et al. 2024) now used in the experimentation pipeline."
+      - "Informed leadership's global rollout decision on a new pricing model. Built a synthetic experiment pipeline (Abadie & Zhao, 2021) across geo-level holdouts."
+      - "Gave the company its first method to estimate long-term experiment impact from short-term data (Athey et al. 2024)."
       - "Reshaped 2026 Inbox team OKRs by sizing a $10M ARR opportunity. Multi-state survival models showed consistency; not intensity; halves churn risk."
-      - "Revealed that the company's core engagement metric is segment-specific: strong retention driver for affiliates, weak for e-commerce. Led a cross-functional workshop of 6 and causal inference research."
       - 'Owned the experimentation maturity strategy. Led a structured POC with a cross-functional panel to onboard Eppo as the company-wide platform; democratised experimentation across the product organisation (<a href="https://towardsdatascience.com/picking-an-experimentation-platform-a-retrospective/" target="_blank" rel="noopener">article</a>).'
       - "Established an evidence-based product discovery process with a cross-functional squad, scoring rubric, and hypothesis tracker. Redirected the H2 roadmap from feature-building to solving the real adoption barrier."
 
