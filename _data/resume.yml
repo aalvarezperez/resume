@@ -54,6 +54,7 @@ skills:
       - Regression
       - Instrumental Variables
       - A/B Testing
+      - Causal forests
       - Econometric Methods
   - title: Machine Learning & AI
     items:
@@ -85,25 +86,27 @@ experience:
   - title: Senior Data Scientist
     duration: Aug 2026 - Present
     company: Booking.com
-    logo: assets/images/bookingcom.svg
+    logo: assets/images/bookingcom.png
+    description: 
+      - Responsible for the measurement and experimentation strategy for Genius.
 
-  - title: Staff Data Scientist
+  - title: Staff Data Scientist — experimentation and causal inference
     duration: Sep 2025 - Aug 2026
     company: Manychat
     logo: assets/images/manychat_logo.jpeg
     description:
-      - "Informed leadership's global rollout decision on a new pricing model. Built a synthetic experiment pipeline (Abadie & Zhao, 2021) across geo-level holdouts."
-      - "Gave the company its first method to estimate long-term experiment impact from short-term data (Athey et al. 2024)."
-      - "Reshaped 2026 Inbox team OKRs by sizing a $10M ARR opportunity. Multi-state survival models showed consistency; not intensity; halves churn risk."
       - 'Owned the experimentation maturity strategy. Led a structured POC with a cross-functional panel to onboard Eppo as the company-wide platform; democratised experimentation across the product organisation (<a href="https://towardsdatascience.com/picking-an-experimentation-platform-a-retrospective/" target="_blank" rel="noopener">article</a>).'
+      - "Informed leadership's global rollout decision on a new pricing model. Built a synthetic experiment pipeline (Abadie & Zhao, 2021) across geo-level holdouts."
       - "Established an evidence-based product discovery process with a cross-functional squad, scoring rubric, and hypothesis tracker. Redirected the H2 roadmap from feature-building to solving the real adoption barrier."
+      # - "Reshaped 2026 Inbox team OKRs by sizing a $10M ARR opportunity. Multi-state survival models showed consistency; not intensity; halves churn risk."
+      - "Gave the company its first method to estimate long-term experiment impact from short-term data (Athey et al. 2024)."
 
   - title: Staff Data Scientist — experimentation and causal inference
     duration: Apr 2023 - Sep 2025
     company: Adevinta (formerly eBay Classifieds) — Marktplaats
     logo: assets/images/adevinta_logo.jpeg
     description:
-      - Increased transactional services revenue by 8% at constant demand. Identified pricing as the highest-leverage growth lever and designed a multi-cell experimentation programme.
+      - Increased transactional services adoption by 8% at stable revenue. Identified differential pricing as the highest-leverage growth lever and designed a multi-cell experimentation programme.
       - Led global leadership to invest in listing detail page improvements by pinpointing which item page properties drive higher conversion across German and Dutch marketplaces.
       - Uncovered inefficiencies costing an estimated 14% of transactions through cross-tribal funnel diagnostics spanning 2 product tribes. Mentored senior data scientists in securing stakeholder buy-in.
       - Founded a recurring internal experimentation conference; cross-market forum where champions shared methods, challenged designs, and raised testing rigour.
@@ -117,7 +120,7 @@ experience:
       - Built the standard experimentation toolkit across eBay Classifieds markets. Co-developed the internal Python package as core developer and statistician; cut setup by 3h per experiment, runtime by 20%.
       - Trained 150+ colleagues in structured opportunity finding through an internal Analytics University (trainer score 9+/10). Graduates independently designed experiments that previously required analyst support.
 
-  - title: Data Scientist, Global — product insights
+  - title: Data Scientist, Global — product
     duration: Nov 2018 - Sep 2019
     company: eBay (classifieds group)
     logo: assets/images/EBay_logo.svg.png
