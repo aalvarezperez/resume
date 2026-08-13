@@ -82,8 +82,13 @@ skills:
       - French (advanced)
 
 experience:
+  - title: Senior Data Scientist
+    duration: Aug 2026 - Present
+    company: Booking.com
+    logo: assets/images/bookingcom.svg
+
   - title: Staff Data Scientist
-    duration: Sep 2025 - Present
+    duration: Sep 2025 - Aug 2026
     company: Manychat
     logo: assets/images/manychat_logo.jpeg
     description:
