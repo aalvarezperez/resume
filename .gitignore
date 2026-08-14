@@ -4,3 +4,4 @@ Gemfile.lock
 .sass-cache/
 yarn.lock
 node_modules
+.DS_Store
