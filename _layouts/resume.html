@@ -2,6 +2,16 @@
 layout: default
 ---
 
+{%- assign years_of_experience = 0 -%}
+{%- if site.data.resume.career_start_date -%}
+  {%- assign start_seconds = site.data.resume.career_start_date | date: "%s" | plus: 0 -%}
+  {%- assign now_seconds = site.time | date: "%s" | plus: 0 -%}
+  {%- assign diff_seconds = now_seconds | minus: start_seconds -%}
+  {%- if diff_seconds > 0 -%}
+    {%- assign years_of_experience = diff_seconds | divided_by: 31557600.0 | round -%}
+  {%- endif -%}
+{%- endif -%}
+
 <div class="container">
     <header>
         <div class="header-toprow">
@@ -32,7 +42,7 @@ layout: default
         </div>
         <div class="header-bottomrow">
             <div id="headline" class="headline">
-                {{ site.data.resume.headline }}
+                {{ site.data.resume.headline | replace: "%years%", years_of_experience }}
             </div>
             <div class="print-url">
                 <i class="fa fa-link" aria-hidden="true"></i>
